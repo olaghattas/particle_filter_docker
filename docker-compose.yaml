@@ -1,0 +1,24 @@
+version: '3'
+services:
+    pf-humble:
+        privileged: true
+        image: "olagh/pf_docker:first_trial"
+        network_mode: host
+        environment:
+            - PULSE_SERVER=tcp:host.docker.internal:4713
+            - ROS_MASTER_URI=http://$ROS_IP:11311
+            - ROS_IP=192.168.1.2
+            - ROS_DOMAIN_ID=25
+            - DISPLAY=:0
+            - FASTRTPS_DEFAULT_PROFILES_FILE=/profile/fastrtps_default_profiles.xml
+            - cam_loc=dining_room
+            - tag_kitchen=44
+            - tag_doorway=38
+            - tag_dining_room=37
+        volumes:
+            - /tmp/.X11-unix/:/tmp/.X11-unix/
+            - ./profile:/profile
+            - ./launch_pf.bash:/tmp/launch_pf.bash
+        #tty: true
+
+        command: /tmp/launch_pf.bash
