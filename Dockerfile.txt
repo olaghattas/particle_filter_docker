@@ -11,9 +11,10 @@ ENV ROS_WS /home/particle_filter
 
 RUN mkdir -p $ROS_WS/src
 WORKDIR $ROS_WS/src
-RUN git clone https://github.com/olaghattas/particle_filter_mesh.git -b multiple_cams && \
+RUN git clone https://github.com/olaghattas/particle_filter_mesh.git -b optimize_motion_model && \
     git clone https://github.com/olaghattas/shr_utils.git  && \
-    git clone https://github.com/olaghattas/particle_filter_msgs.git
+    git clone https://github.com/olaghattas/particle_filter_msgs.git && \
+    git clone https://github.com/stereolabs/zed-ros2-interfaces.git
 
 
 # install humble 
@@ -64,8 +65,6 @@ ENV ROS_PYTHON_VERSION=3
 ENV ROS_DISTRO=humble
 RUN apt install python3-colcon-common-extensions -y
 
-WORKDIR $ROS_WS/src
-RUN git clone https://github.com/stereolabs/zed-ros2-interfaces.git
 WORKDIR $ROS_WS
 
 RUN sudo apt update && sudo apt-get install -y libopencv-dev python3-opencv
