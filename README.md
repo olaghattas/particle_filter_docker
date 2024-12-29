@@ -12,26 +12,25 @@ Extract the position of the cameras in the environment and update the yaml file 
 
 3. **Build the Docker Image:**
 build the docker with updated particle_filter_mesh and aptags_tf_broadcaster packages
-   
-```
-cd particle_filter_docker
-docker build -t docker_username/pf_docker:tag -f Dockerfile.txt 
-```
+   ```
+   cd particle_filter_docker
+   docker build -t docker_username/pf_docker:tag -f Dockerfile.txt 
+   ```
 Replace <docker_username> with your Docker Hub username.
-Replace <tag> with a descriptive tag reflecting the changes (e.g., new_motion_model).
+Replace <tag> with a descriptive tag reflecting the changes.
 
 3. **Update Docker Compose Configuration:**
 Edit the docker-compose.yaml file to include the name and tag used during the Docker build.
 
 NOTE: Ensure the Dockerfile.txt clones the repositories containing your updates to particle_filter_mesh and aptags_tf_broadcaster.
 
-### Prerequisities
+## Prerequisities
 
 In order to run this container you'll need docker installed. docker-compose  installed.
 
 * [Linux](https://docs.docker.com/linux/started/)
 
-### Usage
+## Usage
 The package includes a docker-compose.yaml 
 
 ```
@@ -48,10 +47,3 @@ https://gist.github.com/mosquito/b23e1c1e5723a7fd9e6568e5cf91180f
 ### Volumes
 
 * `/launch_pf.bash` - The required launch file to 
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-* People you want to thank
-* If you took a bunch of code from somewhere list it here
