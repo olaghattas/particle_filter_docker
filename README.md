@@ -26,9 +26,10 @@ NOTE: Ensure the Dockerfile.txt clones the repositories containing your updates 
 
 ## Prerequisities
 
-In order to run this container you'll need docker installed. docker-compose  installed.
+Ensure the following are installed before running this container:
 
-* [Linux](https://docs.docker.com/linux/started/)
+Docker:[Linux](https://docs.docker.com/linux/started/)
+Docker Compose
 
 ## Usage
 The package includes a docker-compose.yaml 
